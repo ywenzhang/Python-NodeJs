@@ -5,12 +5,11 @@ const {Datastore} = require('@google-cloud/datastore');
 const ds = new Datastore();
 const app = express();
 
-// [START hello_world]
-// Say hello!
+app.set("view engine", "ejs");
+
 app.get('/', (req, res) => {
-    res.status(200).send('Hello, world!');
+    res.render("index");
 });
-// [END hello_world]
 
 // [START update]
 app.post('/update/:user/:day/:hour/:step/', async (req, res, next) => {
